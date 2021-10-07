@@ -1,7 +1,8 @@
 import 'jsdom-global/register'; 
 import React from "react";
 import { mount } from "enzyme";
-import Footer from "../../components/Footer"
+import { create } from "react-test-renderer";
+import Footer from "../../components/Footer";
 
 describe('<Footer />', () => {
     //Aqui sale un error con mount() se instala npm install --save-dev --save-exact jsdom jsdom-global
@@ -13,3 +14,11 @@ describe('<Footer />', () => {
         expect(footer.find(".Footer-title").text()).toEqual("Platzi Store");
     });
 });
+
+describe ('Footer snapshot', () => {
+    test('Comprobar el UI del componente Footer', () => {
+        const footer = create(<Footer/>);
+        expect(footer.toJSON()).toMatchSnapshot();
+    })
+    
+})
