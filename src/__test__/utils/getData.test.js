@@ -10,7 +10,7 @@ describe('Fetch API', () => {
 
         getData('https://google.com')
             .then((response) => {
-                expect(response.data).toEqual('123456')
+                expect(response.data).toEqual('12345')
             })
 
             expect(fetch.mock.call[0][0].toEqual('https://google.com'))
